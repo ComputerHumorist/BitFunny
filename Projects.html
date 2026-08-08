@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!--lease don't steal my code! I mean, yall can use it, but please give me credit. Or try to make it different idk-->
+<html lang="en">
+    <head>
+        <style>
+            @font-face {
+                font-family: "DePixel";
+                src: url("https://db.onlinewebfonts.com/t/1144faa6fb5f8b45e79d4d87a8c27e92.eot");
+                src: url("https://db.onlinewebfonts.com/t/1144faa6fb5f8b45e79d4d87a8c27e92.eot?#iefix")format("embedded-opentype"),
+                url("https://db.onlinewebfonts.com/t/1144faa6fb5f8b45e79d4d87a8c27e92.woff2")format("woff2"),
+                url("https://db.onlinewebfonts.com/t/1144faa6fb5f8b45e79d4d87a8c27e92.woff")format("woff"),
+                url("https://db.onlinewebfonts.com/t/1144faa6fb5f8b45e79d4d87a8c27e92.ttf")format("truetype"),
+                url("https://db.onlinewebfonts.com/t/1144faa6fb5f8b45e79d4d87a8c27e92.svg#DePixel")format("svg");
+                font-weight: normal;
+                font-style: normal;
+            }
+            body {
+                background-color: black;
+                min-height: 100vh;
+                font-family: "DePixel";
+                image-rendering: pixelated;
+                margin: 0;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            body::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('skulls.jpg');;
+                background-position: center;
+                image-rendering: pixelated;
+                filter: brightness(0.2);
+                z-index: -1;
+            }
+            .CenterUpBox {
+                background-color: rgba(0, 0, 0, 0.7); 
+                border: 2px solid #383838;
+                border-radius: 4px;
+                color: #b1d3ff;
+                padding: 12px 18px;
+                margin-bottom: 12px;
+                font-family: "DePixel", monospace;
+                backdrop-filter: blur(2px);
+                width: 700px;
+                height: 150px;
+                position: absolute;
+                top:100px;
+            }
+            .RightUpBox {
+                background-color: rgba(0, 0, 0, 0.7); 
+                border: 2px solid #383838;
+                border-radius: 4px;
+                color: #b1d3ff;
+                padding: 12px 18px;
+                margin-bottom: 12px;
+                font-family: "DePixel", monospace;
+                backdrop-filter: blur(2px);
+                width: 200px;
+                height: 500px;
+                position: absolute;
+                top:100px;
+                right:300px;
+            }
+            .LeftUpBox {
+                background-color: rgba(0, 0, 0, 0.7); 
+                border: 2px solid #383838;
+                border-radius: 4px;
+                color: #b1d3ff;
+                padding: 12px 18px;
+                margin-bottom: 12px;
+                font-family: "DePixel", monospace;
+                backdrop-filter: blur(2px);
+                width: 200px;
+                height: 500px;
+                position: absolute;
+                top:100px;
+                left:300px;
+            }
+
+            .LeftUpBox h2 {
+                color: #32c2aa;
+                margin-top: 0;
+                margin-bottom: 15px;
+            }
+
+            .menu-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .menu-list li {
+                margin-bottom: 8px;
+                padding: 5px 0;
+                border-bottom: 1px solid rgba(56, 56, 56, 0.3);
+            }
+
+            .menu-list li:last-child {
+                border-bottom: none;
+            }
+
+            .menu-list a {
+                color: #b1d3ff;
+                text-decoration: none;
+                display: block;
+                transition: 0.3s;
+                padding: 3px 0;
+            }
+
+            .menu-list a:hover {
+                color: #38ffde;
+                padding-left: 8px;
+                text-decoration: underline;
+            }
+
+            .menu-list .icon {
+                margin-right: 8px;
+                opacity: 0.6;
+            }
+            .CenterDownBox {
+                background-color: rgba(0, 0, 0, 0.7); 
+                border: 2px solid #383838;
+                border-radius: 4px;
+                color: #b1d3ff;
+                padding: 12px 18px;
+                margin-bottom: 12px;
+                font-family: "DePixel", monospace;
+                backdrop-filter: blur(2px);
+                width: 700px;
+                height: 500px;
+                position: absolute;
+                bottom:200px;
+                top: 300px;
+            }
+            .ascii-container {
+                position: absolute;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 10;
+                max-width: 90%;
+                padding: 30px 40px;
+                background-color: rgba(0, 0, 0, 0);
+                border: 2px solid rgb(63, 255, 79,0);
+                border-radius: 12px;
+                box-shadow: 
+                    0 0 40px rgba(63, 255, 79, 0.15),
+                    inset 0 0 60px rgba(0, 0, 0, 0.8);
+                backdrop-filter: blur(1px);
+            }
+
+            .ascii-art {
+                color: rgb(63, 255, 79);
+                font-size: 10px;
+                line-height: 1.1;
+                white-space: pre;
+                display: block;
+                text-shadow: 0 0 10px rgba(63, 255, 79, 0.3);
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="CenterUpBox">
+            <h2>Projects</h2>
+            <p>You can see all my open-source projects here. There is no games, because well, all my games are on itch.io</p>
+        </div>
+        <div class="CenterDownBox">
+            <h2>Projects:</h2>
+             <ul class="menu-list">
+                <li><a href="https://microstudio.dev/i/ComputerHumorist/greenengine/"><span class="icon">❅</span></span>Green Engine - A simple 3D Render Engine built on microStudio (It supposed to be a 3D game engine before)</a></li>
+            </ul>
+        </div>
+        <div class="RightUpBox">
+            <h2>Did you know?</h2>
+            <p>I'm gonna do MORE projects in future. I'm trying myself at everything.</p>
+        </div>
+        <div class="LeftUpBox">
+            <h2>☾ Other Pages</h2>
+            <ul class="menu-list">
+                <li><a href="MainPage.html"><span class="icon">✩</span> Main Page</a></li>
+                <li><a href="https://steamcommunity.com/profiles/76561199196936695/"><span class="icon">✩</span> Steam</a></li>
+                <li><a href="https://computer-humorist.itch.io/"><span class="icon">✩</span> Itch.io</a></li>
+                <li><a href="https://sbox.game/u/76561199196936695"><span class="icon">✩</span> S&box</a></li>
+                <li><a href="#" onclick="showMessage('You are already here dummy!'); return false;"><span class="icon">✩</span> Projects</a></li>
+                <li><a href="#" onclick="showMessage('I\'m too lazy to add something else here...'); return false;"><span class="icon">✩</span> Something</a></li>
+            </ul>
+        </div>
+        <script>
+            function showMessage(string) {
+                alert(string);
+            }
+        </script>
+    </body>
+</html>

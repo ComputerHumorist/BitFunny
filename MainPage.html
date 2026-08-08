@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            @font-face {
+                font-family: "DePixel";
+                src: url("https://db.onlinewebfonts.com/t/1144faa6fb5f8b45e79d4d87a8c27e92.eot");
+                src: url("https://db.onlinewebfonts.com/t/1144faa6fb5f8b45e79d4d87a8c27e92.eot?#iefix")format("embedded-opentype"),
+                url("https://db.onlinewebfonts.com/t/1144faa6fb5f8b45e79d4d87a8c27e92.woff2")format("woff2"),
+                url("https://db.onlinewebfonts.com/t/1144faa6fb5f8b45e79d4d87a8c27e92.woff")format("woff"),
+                url("https://db.onlinewebfonts.com/t/1144faa6fb5f8b45e79d4d87a8c27e92.ttf")format("truetype"),
+                url("https://db.onlinewebfonts.com/t/1144faa6fb5f8b45e79d4d87a8c27e92.svg#DePixel")format("svg");
+                font-weight: normal;
+                font-style: normal;
+            }
+            body {
+                background-color: black;
+                min-height: 100vh;
+                font-family: "DePixel";
+                image-rendering: pixelated;
+                margin: 0;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            body::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('skulls.jpg');;
+                background-position: center;
+                image-rendering: pixelated;
+                filter: brightness(0.2);
+                z-index: -1;
+            }
+            .CenterUpBox {
+                background-color: rgba(0, 0, 0, 0.7); 
+                border: 2px solid #383838;
+                border-radius: 4px;
+                color: #b1d3ff;
+                padding: 12px 18px;
+                margin-bottom: 12px;
+                font-family: "DePixel", monospace;
+                backdrop-filter: blur(2px);
+                width: 700px;
+                height: 400px;
+                position: absolute;
+                top:250px;
+            }
+            .RightUpBox {
+                background-color: rgba(0, 0, 0, 0.7); 
+                border: 2px solid #383838;
+                border-radius: 4px;
+                color: #b1d3ff;
+                padding: 12px 18px;
+                margin-bottom: 12px;
+                font-family: "DePixel", monospace;
+                backdrop-filter: blur(2px);
+                width: 200px;
+                height: 500px;
+                position: absolute;
+                top:250px;
+                right:300px;
+                display: flex;
+                flex-direction: column;
+            }
+            .LeftUpBox {
+                background-color: rgba(0, 0, 0, 0.7); 
+                border: 2px solid #383838;
+                border-radius: 4px;
+                color: #b1d3ff;
+                padding: 12px 18px;
+                margin-bottom: 12px;
+                font-family: "DePixel", monospace;
+                backdrop-filter: blur(2px);
+                width: 200px;
+                height: 500px;
+                position: absolute;
+                top:250px;
+                left:300px;
+            }
+
+            .LeftUpBox h2 {
+                color: #32c2aa;
+                margin-top: 0;
+                margin-bottom: 15px;
+            }
+
+            .menu-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .menu-list li {
+                margin-bottom: 8px;
+                padding: 5px 0;
+                border-bottom: 1px solid rgba(56, 56, 56, 0.3);
+            }
+
+            .menu-list li:last-child {
+                border-bottom: none;
+            }
+
+            .menu-list a {
+                color: #b1d3ff;
+                text-decoration: none;
+                display: block;
+                transition: 0.3s;
+                padding: 3px 0;
+            }
+
+            .menu-list a:hover {
+                color: #38ffde;
+                padding-left: 8px;
+                text-decoration: underline;
+            }
+
+            .menu-list .icon {
+                margin-right: 8px;
+                opacity: 0.6;
+            }
+            .CenterDownBox {
+                background-color: rgba(0, 0, 0, 0.7); 
+                border: 2px solid #383838;
+                border-radius: 4px;
+                color: #b1d3ff;
+                padding: 12px 18px;
+                margin-bottom: 12px;
+                font-family: "DePixel", monospace;
+                backdrop-filter: blur(2px);
+                width: 700px;
+                height: 200px;
+                position: absolute;
+                bottom:200px;
+                top: 700px;
+            }
+            .ascii-container {
+                position: absolute;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 10;
+                max-width: 90%;
+                padding: 30px 40px;
+                background-color: rgba(0, 0, 0, 0);
+                border: 2px solid rgb(63, 255, 79,0);
+                border-radius: 12px;
+                box-shadow: 
+                    0 0 40px rgba(63, 255, 79, 0.15),
+                    inset 0 0 60px rgba(0, 0, 0, 0.8);
+                backdrop-filter: blur(1px);
+            }
+
+            .ascii-art {
+                color: rgb(63, 255, 79);
+                font-size: 10px;
+                line-height: 1.1;
+                white-space: pre;
+                display: block;
+                text-shadow: 0 0 10px rgba(63, 255, 79, 0.3);
+                margin: 0;
+                padding: 0;
+            }
+            .RightUpBox h2 {
+                color: #32c2aa;
+                margin-top: 0;
+                margin-bottom: 15px;
+            }
+
+            .right-content {
+                flex: 1;
+            }
+            .buttons-marquee {
+                margin-top: 10px;
+                padding-top: 10px;
+                border-top: 1px solid rgba(56, 56, 56, 0.3);
+                flex-shrink: 0;
+            }
+            .buttons-marquee marquee {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .buttons-marquee img {
+                image-rendering: pixelated;
+                width: 88px;
+                height: 31px;
+                border: 1px solid #383838;
+                border-radius: 2px;
+                background-color: #111;
+                margin: 0 4px;
+            }
+            @media (max-width: 900px) {
+                body {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 20px 0;
+                }
+
+                .ascii-art {
+                    font-size: 5px;
+                }
+
+                .CenterUpBox,
+                .RightUpBox,
+                .LeftUpBox,
+                .CenterDownBox {
+                    position: relative;
+                    top: auto !important;
+                    left: auto !important;
+                    right: auto !important;
+                    bottom: auto !important;
+                    width: 90%;
+                    max-width: 700px;
+                    margin: 10px auto;
+                    height: auto;
+                    min-height: 100px;
+                }
+
+                .RightUpBox {
+                    order: 4;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="ascii-container">
+            <pre class="ascii-art">
+Hello, I am
+  ______                                                 __                                __    __                                              __              __     
+ /      \                                               /  |                              /  |  /  |                                            /  |            /  |    
+/$$$$$$  |  ______   _____  ____    ______   __    __  _$$ |_     ______    ______        $$ |  $$ | __    __  _____  ____    ______    ______  $$/   _______  _$$ |_   
+$$ |  $$/  /      \ /     \/    \  /      \ /  |  /  |/ $$   |   /      \  /      \       $$ |__$$ |/  |  /  |/     \/    \  /      \  /      \ /  | /       |/ $$   |  
+$$ |      /$$$$$$  |$$$$$$ $$$$  |/$$$$$$  |$$ |  $$ |$$$$$$/   /$$$$$$  |/$$$$$$  |      $$    $$ |$$ |  $$ |$$$$$$ $$$$  |/$$$$$$  |/$$$$$$  |$$ |/$$$$$$$/ $$$$$$/   
+$$ |   __ $$ |  $$ |$$ | $$ | $$ |$$ |  $$ |$$ |  $$ |  $$ | __ $$    $$ |$$ |  $$/       $$$$$$$$ |$$ |  $$ |$$ | $$ | $$ |$$ |  $$ |$$ |  $$/ $$ |$$      \   $$ | __ 
+$$ \__/  |$$ \__$$ |$$ | $$ | $$ |$$ |__$$ |$$ \__$$ |  $$ |/  |$$$$$$$$/ $$ |            $$ |  $$ |$$ \__$$ |$$ | $$ | $$ |$$ \__$$ |$$ |      $$ | $$$$$$  |  $$ |/  |
+$$    $$/ $$    $$/ $$ | $$ | $$ |$$    $$/ $$    $$/   $$  $$/ $$       |$$ |            $$ |  $$ |$$    $$/ $$ | $$ | $$ |$$    $$/ $$ |      $$ |/     $$/   $$  $$/ 
+ $$$$$$/   $$$$$$/  $$/  $$/  $$/ $$$$$$$/   $$$$$$/     $$$$/   $$$$$$$/ $$/             $$/   $$/  $$$$$$/  $$/  $$/  $$/  $$$$$$/  $$/       $$/ $$$$$$$/     $$$$/  
+                                  $$ |                                                                                                                                  
+                                  $$ |                                                                                                                                  
+            </pre>
+        </div>
+        <div class="CenterUpBox">
+            <h2>About Me</h2>
+            <p>I was interested in coding since childhood. I made a lot of stuff back in the good old days. I make games on Unity, S&box, and sometimes Godot! I also sometimes do stuff on microStudio. I had a site before, but i abandoned it. Then i tried to make new one, but I just got bored! And then I made this one. My main language is Csharp.</p>
+        </div>
+        <div class="CenterDownBox">
+            <h2>Changes:</h2>
+             <ul class="menu-list">
+                <li>08.07.2026 - Site was created.</li>
+            </ul>
+        </div>
+        <div class="RightUpBox">
+            <div class="right-content">
+                <h2>Hot Damn</h2>
+                <p>You can download my games from itch.io, and you can see my steam profile for some reason</p>
+            </div>  
+            <div class="buttons-marquee">
+                <marquee scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();">
+                    <a href="#"><img src="https://jack-dawlia.neocities.org/image/under-construction.gif" alt="NoImage"></a>
+                    <a href="#"><img src="https://jack-dawlia.neocities.org/image/green-lace-programmer.gif" alt="NoImage"></a>
+                    <a href="#"><img src="https://jack-dawlia.neocities.org/image/mobile-unfriendly.gif" alt="NoImage"></a>
+                    <a href="#"><img src="https://mesoscale.neocities.org/images/88x31/2038.png" alt="NoImage"></a>
+                    <a href="#"><img src="https://jack-dawlia.neocities.org/image/want-to-believe.gif" alt="NoImage"></a>
+                    <a href="#"><img src="https://jack-dawlia.neocities.org/image/gif/i-love-big-text-button.gif" alt="NoImage"></a>
+                    <a href="#"><img src="https://jack-dawlia.neocities.org/image/gif/feral-pigeon-button.gif" alt="NoImage"></a>
+                </marquee>
+            </div>
+        </div>
+        <div class="LeftUpBox">
+            <h2>☾ Other Pages</h2>
+            <ul class="menu-list">
+                <li><a href="#" onclick="showMessage('You are already here dummy!'); return false;"><span class="icon">✩</span> Main Page</a></li>
+                <li><a href="https://steamcommunity.com/profiles/76561199196936695/"><span class="icon">✩</span> Steam</a></li>
+                <li><a href="https://computer-humorist.itch.io/"><span class="icon">✩</span> Itch.io</a></li>
+                <li><a href="https://sbox.game/u/76561199196936695"><span class="icon">✩</span> S&box</a></li>
+                <li><a href="Projects.html"><span class="icon">✩</span> Projects</a></li>
+                <li><a href="#" onclick="showMessage('I\'m too lazy to add something else here...'); return false;"><span class="icon">✩</span> Something</a></li>
+            </ul>
+        </div>
+        <script>
+            function showMessage(string) {
+                alert(string);
+            }
+        </script>
+    </body>
+</html>
